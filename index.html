@@ -3,11 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Effective JavaScript: Frogger</title>
+
+    <!-- Bootstrap Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Bootstrap Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="jumbotron">
+        <h1>Welcome to Arcade Frogger</h1>
+    </div>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="avSelection" class="panel panel-primary">
+                        <h2 class="panel-heading">Choose Your Avatar</h2>
+                    </div>
+                    <div id="scorefield" class="panel panel-primary">
+                        <h2 class="panel-heading">Top Scores</h2>
+                    </div>
+                </div>
+                <div id="playfield" class="col-md-6 panel"></div>
+            </div>
+            <button id="launchGame" type="button" class="btn btn-warning btn-block col-md-12">Start</button>
+        </div>
+    </main>
+    <!-- Latest compiled and minified jquery  -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified Bootstrap  -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="js/resources.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/arcade.js"></script>\
+    <script src="js/player.js"></script>
+    <script src="js/avatars.js"></script>
+    <script src="js/jewel.js"></script>
+    <script src="js/enemy.js"></script>
+    <script src="js/scores.js"></script>
     <script src="js/engine.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>

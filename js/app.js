@@ -1,46 +1,51 @@
-// Enemies our player must avoid
-var Enemy = function() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
+'use strict';
 
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
-    this.sprite = 'images/enemy-bug.png';
-};
+$(document).ready(function () {
+    var launchGame = $("#launchGame");
 
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-};
+    // This listens for key presses and sends the keys to
+    // Engine.handleInput() method.
+    var kbdInput = function (e) {
+        var allowedKeys = {
+            37: 'left',
+            38: 'up',
+            39: 'right',
+            40: 'down'
+        };
 
-// Draw the enemy on the screen, required method for game
-Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
-
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
-
-
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-
-
-
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
-document.addEventListener('keyup', function(e) {
-    var allowedKeys = {
-        37: 'left',
-        38: 'up',
-        39: 'right',
-        40: 'down'
+        Engine.handleInput(allowedKeys[e.which]);
+        e.preventDefault();
     };
 
-    player.handleInput(allowedKeys[e.keyCode]);
+    var launchClickHandler = function  () {
+        var btnString = launchGame.text();
+
+        switch (btnString) {
+            case "Play Again":
+            case "Start":
+                launchGame.text("Stop");
+                $(document).keyup (kbdInput);
+                Engine.startGame(function () {
+                    // callback invoked when the game is over
+                    // first turnoff key capture pending key strokes
+                    // are not processed in a new round of play
+                    $(document).off("keyup");
+                    launchGame.text("Play Again");
+                });
+                break;
+            case "Stop":
+                Engine.stopGame();
+                launchGame.text("Play Again");
+                break;
+            default:
+                window.alert("Unable to Launch Game : " + btnString);
+                break;
+        }
+    };
+
+    // launch the arcade when all the images have been loaded
+    Resources.onReady(function () {
+        Engine.launchArcade();
+        launchGame.click(launchClickHandler);
+    });
 });
