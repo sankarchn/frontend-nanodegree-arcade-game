@@ -7,7 +7,7 @@
 'use strict';
 
 var speedInc = 20,
-    speedMax = 300;
+    speedMax = 200;
 
 var Enemy = function (pic, x, y, speed) {
     // Variables applied to each of our instances go here,
@@ -30,7 +30,7 @@ Enemy.prototype.update = function (dt) {
     // all computers.
     this.curPos.x += dt * this.speed;
 
-    if (this.curPos.x >= ctx.canvas.clientWidth) {
+    if (this.curPos.x >= ctx.canvas.width) {
         this.curPos.x = 0;
         this.speed += speedInc * Math.random();
         if (this.speed > speedMax) {
@@ -46,14 +46,9 @@ Enemy.prototype.render = function () {
 
 Enemy.prototype.checkCollision = function (playerPos) {
     var myPos = this.curPos;
-    if ((playerPos.y == myPos.y) &&
-        (playerPos.x >= myPos.x) &&
-        (playerPos.x <= (myPos.x + Arcade.cellWidth)))
-    // the bug cannot bite if its mouth is past your body :-)
-    // || (myPos.x >= playerPos.x) && (myPos.x <= (playerPos.x + Arcade.cellWidth)) )
-        return true;
-
-    return false;
+    return ((playerPos.y == myPos.y) &&
+    (playerPos.x >= myPos.x) &&
+    (playerPos.x <= (myPos.x + Arcade.cellWidth)));
 };
 
 Enemy.prototype.reset = function () {

@@ -19,10 +19,9 @@
     Resources.load(starImg);
 
     scorefield.append(scoreCanvas);
-    scorefield.hide();
     scoreCanvas.width = 3 * Arcade.cellWidth;
     scoreCanvas.height = 3 * Arcade.cellHeight;
-
+    configHiRes(scoreCanvas);
     function render () {
         var gameCount = (scoreTable.length > 3) ? 3 : scoreTable.length,
             who,

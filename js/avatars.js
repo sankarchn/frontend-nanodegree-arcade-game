@@ -32,8 +32,8 @@
     avCanvas.height = 101;
     avSelection.hide();
     avSelection.append(avCanvas);
-    avSelCanvas = $("#avSelection > canvas");
-
+    avSelCanvas = $('#avSelection > canvas');
+    configHiRes(avCanvas);
     function chooseAvatar (cb) {
         var playerObj;
 
@@ -49,7 +49,7 @@
                 y: e.pageY - avSelCanvas.offset().top
             };
 
-            avCurrent = Math.floor(pos.x / Arcade.cellWidth);
+            avCurrent = Math.floor((pos.x * window.ratio)/ Arcade.cellWidth);
             displayAvatars(avCurrent);
             playerObj = allAvatars[avCurrent];
             if (cb)

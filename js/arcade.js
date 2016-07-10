@@ -54,3 +54,24 @@ var Sprite = {
     blockWidth: 101,
     blockHeight: 80  // ignoring the dark portion at the bottom
 };
+
+function configHiRes (canvas) {
+    var ctx = canvas.getContext('2d'),
+        devicePixelRatio = window.devicePixelRatio || 1,
+        backingStoreRatio = ctx.webkitBackingStorePixelRatio ||
+        ctx.mozBackingStorePixelRatio ||
+        ctx.msBackingStorePixelRatio ||
+        ctx.oBackingStorePixelRatio ||
+        ctx.backingStorePixelRatio || 1,
+        ratio = devicePixelRatio / backingStoreRatio;
+
+    // upscale canvas if the two ratios don't match
+    if (ratio != 1) {
+        canvas.style.width = canvas.width / ratio + 'px';
+        canvas.style.height = canvas.height / ratio + 'px';
+    }
+    // console.log("devicePixelRatio: " + devicePixelRatio + " backingStoreRatio: " + backingStoreRatio + " ratio: " + ratio);
+    // console.log("browser width: " + window.outerWidth + " height: " + window.outerHeight);
+    window.ratio = ratio;
+}
+

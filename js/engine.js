@@ -41,12 +41,12 @@
     canvas.width = Arcade.cellWidth * Arcade.numCols;
     canvas.height = Arcade.cellHeight * Arcade.numRows;
     $("#playfield").prepend(canvas);
-
+    configHiRes(canvas);
     function launchArcade () {
         if (!allEnemies.length) {
             // Enemies our player must avoid
             for (var i = 0; i < Arcade.nBugs; i++) {
-                allEnemies[i] = new Enemy(Sprite.bugPic, 0, (i + 1) * Arcade.cellHeight, 50 + i*25);
+                allEnemies[i] = new Enemy(Sprite.bugPic, 0, (i + 1) * Arcade.cellHeight, 30 + i*30);
             }
         }
         Jewel.init();
