@@ -2,13 +2,18 @@ body {
     text-align: center;
 }
 
-.jumbotron {
+.page-header {
     background-color: #8b90ee;
     color: white;
 }
 
 #launchGame {
-    margin-bottom: 40px;
-    font-size: 32px;
-    padding: 20px;
+    font-size: 24px;
+    background-color: #ee7805;
+    color: white;
+}
+
+h3 {
+    background-color: #eeed90;
+    color: #1d16ee;
 }

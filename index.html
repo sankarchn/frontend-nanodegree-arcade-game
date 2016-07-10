@@ -11,23 +11,26 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="jumbotron">
+    <div class="page-header">
         <h1>Welcome to Arcade Frogger</h1>
     </div>
     <main>
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <div id="avSelection" class="panel panel-primary">
-                        <h2 class="panel-heading">Choose Your Avatar</h2>
-                    </div>
-                    <div id="scorefield" class="panel panel-primary">
-                        <h2 class="panel-heading">Top Scores</h2>
+                <div id="playfield" class="col-md-6">
+                    <div>
+                        <button id="launchGame">Start</button>
                     </div>
                 </div>
-                <div id="playfield" class="col-md-6 panel"></div>
+                <div class="col-md-6">
+                    <div id="avSelection">
+                        <h3 >Choose Your Avatar</h3>
+                    </div>
+                    <div id="scorefield">
+                        <h3>Top Scores</h3>
+                    </div>
+                </div>
             </div>
-            <button id="launchGame" type="button" class="btn btn-warning btn-block col-md-12">Start</button>
         </div>
     </main>
     <!-- Latest compiled and minified jquery  -->
@@ -35,7 +38,7 @@
     <!-- Latest compiled and minified Bootstrap  -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="js/resources.js"></script>
-    <script src="js/arcade.js"></script>\
+    <script src="js/arcade.js"></script>
     <script src="js/player.js"></script>
     <script src="js/avatars.js"></script>
     <script src="js/jewel.js"></script>
