@@ -67,8 +67,8 @@ function configHiRes (canvas) {
 
     // upscale canvas if the two ratios don't match
     if (ratio != 1) {
-        canvas.style.width = canvas.width / ratio + 'px';
-        canvas.style.height = canvas.height / ratio + 'px';
+        canvas.style.width = Math.round(canvas.width / ratio) + 'px';
+        canvas.style.height = Math.round(canvas.height / ratio) + 'px';
     }
     // console.log("devicePixelRatio: " + devicePixelRatio + " backingStoreRatio: " + backingStoreRatio + " ratio: " + ratio);
     // console.log("browser width: " + window.outerWidth + " height: " + window.outerHeight);
